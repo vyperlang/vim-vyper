@@ -1,22 +1,29 @@
-# vim-viper
-Vim syntax highlighting for the experimental programming language [Vyper](https://github.com/ethereum/vyper).
+# vim-vyper
+Vim/Neovim syntax highlighting for [Vyper](https://github.com/vyperlang/vyper),
+the premeire Ethereum smart contracting language.
 
-Work in progess.
+## Installation
 
-Currently uses *.vy.
+### Pathogen
+Run the following command:
 
-### Quick Install
-```
-curl https://raw.githubusercontent.com/jacqueswww/vim-vyper/master/install.sh | sh
-```
-### Installation
-
-Drop the appropriate files into:
-
-```
-~/.vim/syntax/
-~/.vim/ftdetect/ 
+```bash
+git clone https://github.com/vyperlang/vim-vyper.git ~/.vim/bundle/vim-vyper
 ```
 
-Note: Folders might have to be created.
+### Vundle
+Add the following line to your `~/.vimrc`:
 
+```vim
+Plugin 'vyperlang/vim-vyper'
+```
+
+### Plug
+Add the following line to your `~/.vimrc`:
+
+```vim
+Plug 'vyperlang/vim-vyper'
+```
+
+### No Plugin Manager
+Copy all of the files manually into your `~/.vim`.

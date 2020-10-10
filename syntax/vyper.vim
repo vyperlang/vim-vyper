@@ -10,13 +10,15 @@ if exists("b:current_syntax")
 endif
 
 "Keywords
-syn keyword vyperStatement return implements from import
-syn keyword vyperStatement assert @version
-syn keyword vyperStatement self
+syn keyword vyperNatspec @title @licence @author @notice @dev @param @return @version
+syn keyword vyperImport implements from import
+syn keyword vyperConstant ZERO_ADDRESS EMPTY_BYTES32 MAX_INT128 MIN_INT128 MAX_DECIMAL MIN_DECIMAL MAX_UINT256
+syn keyword vyperEnvironment msg tx block
 syn keyword vyperStatement struct event interface def nextgroup=vyperFunction skipwhite
-syn keyword vyperRepeat for while
-syn keyword vyperConditional if else
-syn keyword vyperOperator and in not or
+syn keyword vyperRepeat for while in
+syn keyword vyperConditional if else elif
+syn keyword vyperSpecial return pass continue break log assert raise
+syn keyword vyperOperator and not or
 syn keyword vyperBoolean True False
 syn keyword vyperStatement external internal nonreentrant pure view nonpayable payable
 syn keyword vyperTypes address bool decimal num bytes32 int128 uint256
@@ -29,16 +31,20 @@ syn keyword vyperTodo TODO FIXME NOTE contained
 
 "Functions
 syn match vyperFunction "[a-zA-Z_][a-zA-Z0-9_]*" display contained
+syn match vyperFunction "\w\+\ze(" display
 
 "Operators
 syn match vyperOperator "\(=\|+\|-\|*\|\/\|%\|!\|<\|>\)"
 
 "Decorators
 syn match vyperDecorator "@" display nextgroup=vyperDecoratorName skipwhite
-syn match vyperDecoratorName "\(payable\|nonpayable\|view\|pure\|internal\|external\)$" display contained
+syn match vyperDecoratorName "\(payable\|nonpayable\|view\|pure\|internal\|external\|nonreentrant\)$" display contained
+
+"Natspec
+syn match vyperNatspec "@\w\+" display nextgroup=vyperNatspec contained
 
 "Comments
-syn match vyperComment "#.*$" contains=vyperTodo
+syn match vyperComment "#.*$" contains=vyperTodo,vyperNatspec
 
 "Literals
 syn match vyperNumber "\<\d\>" display
@@ -48,12 +54,12 @@ syn match vyperAddress "\<0x\x\{40}\>" display
 syn match vyperAddressError "\<0x\x\{0,39}\>" display
 syn match vyperAddressError "\<0x\x\{41,}\>" display
 syn match vyperAddressError "\<0x\x*\X\+.\+\>" display
-syn match vyperDecimal "\<\d*\.\d\+\>" display 
+syn match vyperDecimal "\<\d*\.\d\+\>" display
 "String (String inside a string doesn't work properly!)
 syn match vyperString +".\{-}"+ display
 syn match vyperString +'.\{-}'+ display
 "Docstrings
-syn region vyperString start=+[uU]\=\z('''\|"""\)+ end="\z1" keepend
+syn region vyperString start=+[uU]\=\z('''\|"""\)+ end="\z1" contains=vyperTodo,vyperNatspec keepend
 
 syn match vyperStringError +".\{-}'+ display
 syn match vyperStringError +'.\{-}"+ display
@@ -64,11 +70,15 @@ syn sync match vyperSync grouphere NONE "^\%(def\)\s\+\h\w*\s*[(:]"
 "Highlighting
 hi link vyperStatement Statement
 hi link vyperConditional Conditional
+hi link vyperConstant Function
 hi link vyperRepeat Repeat
 hi link vyperOperator Operator
 hi link vyperBoolean Boolean
 hi link vyperDecorator Define
 hi link vyperDecoratorName Function
+hi link vyperNatspec Special
+hi link vyperSpecial Special
+hi link vyperEnvironment Boolean
 hi link vyperComment Comment
 hi link vyperTypes Type
 hi link vyperNumber Number

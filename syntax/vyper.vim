@@ -10,7 +10,7 @@ if exists("b:current_syntax")
 endif
 
 "Keywords
-syn keyword vyperStatement return implements
+syn keyword vyperStatement return implements from import
 syn keyword vyperStatement assert @version
 syn keyword vyperStatement self
 syn keyword vyperStatement struct event interface def nextgroup=vyperFunction skipwhite
@@ -35,7 +35,7 @@ syn match vyperOperator "\(=\|+\|-\|*\|\/\|%\|!\|<\|>\)"
 
 "Decorators
 syn match vyperDecorator "@" display nextgroup=vyperDecoratorName skipwhite
-syn match vyperDecoratorName "\(payable\|constant\|internal\|public\)$" display contained
+syn match vyperDecoratorName "\(payable\|nonpayable\|view\|pure\|internal\|external\)$" display contained
 
 "Comments
 syn match vyperComment "#.*$" contains=vyperTodo

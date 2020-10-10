@@ -1,8 +1,8 @@
 " Vim syntax file
-" Language:             Vyper (https://github.com/ethereum/vyper)
+" Language:             Vyper (https://github.com/vyperlang/vyper)
 " Author:               chgue (https://github.com/chgue)
-" URL:                  https://github.com/chgue/vim-viper
-" Last Change:          2019-06-06
+" URL:                  https://github.com/vyperlang/vim-vyper
+" Last Change:          2020-10-10
 " Filenames:            *.vy
 
 if exists("b:current_syntax")
@@ -10,21 +10,21 @@ if exists("b:current_syntax")
 endif
 
 "Keywords
-syn keyword vyperStatement return
+syn keyword vyperStatement return implements
 syn keyword vyperStatement assert @version
-syn keyword vyperStatement struct
-syn keyword vyperStatement contract def nextgroup=vyperFunction skipwhite
+syn keyword vyperStatement self
+syn keyword vyperStatement struct event interface def nextgroup=vyperFunction skipwhite
 syn keyword vyperRepeat for while
 syn keyword vyperConditional if else
 syn keyword vyperOperator and in not or
 syn keyword vyperBoolean True False
-syn keyword vyperStatement return public private nonreentrant
-syn keyword vyperTypes address bool decimal num bytes32 int128 uint256 bytes string
-syn keyword vyperTypes wei_value timestamp timedelta
+syn keyword vyperStatement external internal nonreentrant pure view nonpayable payable
+syn keyword vyperTypes address bool decimal num bytes32 int128 uint256
+syn keyword vyperTypes Bytes String HashMap
 syn keyword vyperBuiltin as_unitless_number as_wei_value bitwise_and bitwise_not bitwise_or bitwise_xor blockhash ceil concat
 syn keyword vyperBuiltin convert create_with_code_of ecadd ecmul ecrecover extract32 floor keccak256 len max method_id min raw_call
-syn keyword vyperBuiltin RLPList sha3 shift slice uint256_addmod uint256_mulmod
-syn keyword vyperBuiltin map event
+syn keyword vyperBuiltin sha3 shift slice uint256_addmod uint256_mulmod
+syn keyword vyperBuiltin indexed public constant
 syn keyword vyperTodo TODO FIXME NOTE contained
 
 "Functions

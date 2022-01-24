@@ -50,10 +50,14 @@ syn match vyperComment "#.*$" contains=vyperTodo,vyperNatspec
 syn match vyperNumber "\<\d\>" display
 syn match vyperNumber "\<[1-9]\d\+\>" display
 syn match vyperNumberError "\<0\d\+\>" display
+syn match vyperHexLiteralError "\<0x\x\{0,3}\>" display
+syn match vyperMethodId "\<0x\x\{4}\>" display
+syn match vyperHexLiteralError "\<0x\x\{5,39}\>" display
 syn match vyperAddress "\<0x\x\{40}\>" display
-syn match vyperAddressError "\<0x\x\{0,39}\>" display
-syn match vyperAddressError "\<0x\x\{41,}\>" display
-syn match vyperAddressError "\<0x\x*\X\+.\+\>" display
+syn match vyperHexLiteralError "\<0x\x\{41,63}\>" display
+syn match vyperBytes32 "\<0x\x\{64}\>" display
+syn match vyperHexLiteralError "\<0x\x\{65,}\>" display
+syn match vyperHexLiteralError "\<0x\x*\X\+.\+\>" display
 syn match vyperDecimal "\<\d*\.\d\+\>" display
 "String (String inside a string doesn't work properly!)
 syn match vyperString +".\{-}"+ display
@@ -82,8 +86,10 @@ hi link vyperEnvironment Boolean
 hi link vyperComment Comment
 hi link vyperTypes Type
 hi link vyperNumber Number
+hi link vyperMethodId Number
 hi link vyperAddress Number
-hi link vyperAddressError Error
+hi link vyperBytes32 Number
+hi link vyperHexLiteralError Error
 hi link vyperDecimal Float
 hi link vyperFunction Function
 hi link vyperBuiltin Function

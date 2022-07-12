@@ -14,7 +14,7 @@ syn keyword vyperNatspec @title @licence @author @notice @dev @param @return @ve
 syn keyword vyperImport implements from import
 syn keyword vyperConstant ZERO_ADDRESS EMPTY_BYTES32 MAX_INT128 MIN_INT128 MAX_DECIMAL MIN_DECIMAL MAX_UINT256
 syn keyword vyperEnvironment msg tx block
-syn keyword vyperStatement struct event interface def nextgroup=vyperFunction skipwhite
+syn keyword vyperStatement enum struct event interface def nextgroup=vyperFunction skipwhite
 syn keyword vyperRepeat for while in
 syn keyword vyperConditional if else elif
 syn keyword vyperSpecial return pass continue break log assert raise

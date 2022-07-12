@@ -37,7 +37,7 @@ syn match vyperFunction "[a-zA-Z_][a-zA-Z0-9_]*" display contained
 syn match vyperFunction "\w\+\ze(" display
 
 "Operators
-syn match vyperOperator "\(=\|+\|-\|*\|\/\|%\|!\|<\|>\)"
+syn match vyperOperator "\v(\=|\+|\-|\*|\/|\%|\!|\<|\>|\||\^|\&)"
 
 "Decorators
 syn match vyperDecorator "@" display nextgroup=vyperDecoratorName skipwhite

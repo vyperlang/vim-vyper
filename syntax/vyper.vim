@@ -27,8 +27,9 @@ syn keyword vyperTypes int8 int16 int24 int32 int40 int48 int56 int64 int72 int8
 syn keyword vyperTypes uint8 uint16 uint24 uint32 uint40 uint48 uint56 uint64 uint72 uint80 uint88 uint96 uint104 uint112 uint120 uint128 uint136 uint144 uint152 uint160 uint168 uint176 uint184 uint192 uint200 uint208 uint216 uint224 uint232 uint240 uint248 uint256
 syn keyword vyperTypes Bytes String HashMap
 syn keyword vyperBuiltin as_unitless_number as_wei_value bitwise_and bitwise_not bitwise_or bitwise_xor blockhash ceil concat
-syn keyword vyperBuiltin convert create_with_code_of ecadd ecmul ecrecover extract32 floor keccak256 len max method_id min raw_call
-syn keyword vyperBuiltin sha3 shift slice uint256_addmod uint256_mulmod
+syn keyword vyperBuiltin convert create_with_code_of ecadd ecmul ecrecover extract32 floor keccak256 len max method_id min raw_call empty
+syn keyword vyperBuiltin sha3 shift slice uint256_addmod uint256_mulmod sha256 pow_mod256
+
 syn keyword vyperBuiltin indexed public constant
 syn keyword vyperTodo TODO FIXME NOTE contained
 

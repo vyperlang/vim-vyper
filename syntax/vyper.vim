@@ -47,7 +47,10 @@ syn match vyperDecoratorName "\(payable\|nonpayable\|view\|pure\|internal\|exter
 syn match vyperNatspec "@\w\+" display nextgroup=vyperNatspec contained
 
 "Comments
-syn match vyperComment "#.*$" contains=vyperTodo,vyperNatspec
+syn match vyperPragma "^#pragma.*$"
+syn match vyperComment "#.*$" contains=vyperTodo,vyperNatspec,vyperPragma
+
+
 
 "Literals
 syn match vyperNumber "\<\d\>" display
@@ -87,6 +90,7 @@ hi link vyperNatspec Special
 hi link vyperSpecial Special
 hi link vyperEnvironment Boolean
 hi link vyperComment Comment
+highlight vyperPragma term=bold cterm=bold
 hi link vyperTypes Type
 hi link vyperNumber Number
 hi link vyperMethodId Number

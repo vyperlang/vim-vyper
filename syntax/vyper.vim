@@ -14,13 +14,13 @@ syn keyword vyperNatspec @title @licence @author @notice @dev @param @return @ve
 syn keyword vyperImport implements from import
 syn keyword vyperConstant ZERO_ADDRESS EMPTY_BYTES32 MAX_INT128 MIN_INT128 MAX_DECIMAL MIN_DECIMAL MAX_UINT256
 syn keyword vyperEnvironment msg tx block
-syn keyword vyperStatement enum struct event interface def nextgroup=vyperFunction skipwhite
+syn keyword vyperStatement flag enum struct event interface def nextgroup=vyperFunction skipwhite
 syn keyword vyperRepeat for while in
 syn keyword vyperConditional if else elif
 syn keyword vyperSpecial return pass continue break log assert raise
 syn keyword vyperOperator and not or
 syn keyword vyperBoolean True False
-syn keyword vyperStatement external internal nonreentrant pure view nonpayable payable
+syn keyword vyperStatement deploy external internal nonreentrant pure view nonpayable payable
 syn keyword vyperTypes address bool decimal
 syn keyword vyperTypes bytes1 bytes2 bytes3 bytes4 bytes5 bytes6 bytes7 bytes8 bytes9 bytes10 bytes11 bytes12 bytes13 bytes14 bytes15 bytes16 bytes17 bytes18 bytes19 bytes20 bytes21 bytes22 bytes23 bytes24 bytes25 bytes26 bytes27 bytes28 bytes29 bytes30 bytes31 bytes32
 syn keyword vyperTypes int8 int16 int24 int32 int40 int48 int56 int64 int72 int80 int88 int96 int104 int112 int120 int128 int136 int144 int152 int160 int168 int176 int184 int192 int200 int208 int216 int224 int232 int240 int248 int256

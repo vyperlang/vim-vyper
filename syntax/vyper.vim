@@ -21,6 +21,7 @@ syn keyword vyperConditional if else elif
 syn keyword vyperSpecial return pass continue break log assert raise
 syn keyword vyperOperator and not or
 syn keyword vyperBoolean True False
+"TODO this is unused
 syn keyword vyperStatement deploy external internal nonreentrant pure view nonpayable payable
 syn keyword vyperTypes address bool decimal
 syn keyword vyperTypes bytes1 bytes2 bytes3 bytes4 bytes5 bytes6 bytes7 bytes8 bytes9 bytes10 bytes11 bytes12 bytes13 bytes14 bytes15 bytes16 bytes17 bytes18 bytes19 bytes20 bytes21 bytes22 bytes23 bytes24 bytes25 bytes26 bytes27 bytes28 bytes29 bytes30 bytes31 bytes32
@@ -43,7 +44,7 @@ syn match vyperOperator "\v(\=|\+|\-|\*|\/|\%|\!|\<|\>|\||\^|\&)"
 
 "Decorators
 syn match vyperDecorator "@" display nextgroup=vyperDecoratorName skipwhite
-syn match vyperDecoratorName "\(payable\|nonpayable\|view\|pure\|internal\|external\|nonreentrant\)$" display contained
+syn match vyperDecoratorName "\(payable\|nonpayable\|view\|pure\|internal\|external\|nonreentrant\)$" display contained "TODO add `@deploy`
 
 "Natspec
 syn match vyperNatspec "@\w\+" display nextgroup=vyperNatspec contained

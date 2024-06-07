@@ -50,7 +50,14 @@ syn match vyperDecoratorName "\(payable\|nonpayable\|view\|pure\|internal\|exter
 syn match vyperNatspec "@\w\+" display nextgroup=vyperNatspec contained
 
 "Comments
-syn match vyperPragma "^\s*#pragma.*$"
+" allow things like
+" #pragma evm-version
+" # pragma evm-version
+" but not
+" # pragma versionnn
+" (for pragmas which don't take arguments, allow trailing whitespace but not
+" trailing words characters)
+syn match vyperPragma "^\s*#\s*pragma\s\+\(evm-version\|experimental-codegen\|optimize\|enable-decimals\|version\)\(\s\+\|$\).*"
 syn match vyperComment "#.*$" contains=vyperTodo,vyperNatspec,vyperPragma
 
 

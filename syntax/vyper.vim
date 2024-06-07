@@ -12,7 +12,6 @@ endif
 "Keywords
 syn keyword vyperNatspec @title @licence @author @notice @dev @param @return @version
 syn keyword vyperImport from import
-syn keyword vyperImplements implements
 syn keyword vyperConstant ZERO_ADDRESS EMPTY_BYTES32 MAX_INT128 MIN_INT128 MAX_DECIMAL MIN_DECIMAL MAX_UINT256
 syn keyword vyperEnvironment msg tx block
 syn keyword vyperStatement flag enum struct event interface def nextgroup=vyperFunction skipwhite
@@ -33,6 +32,9 @@ syn keyword vyperBuiltin sha3 shift slice uint256_addmod uint256_mulmod sha256 p
 
 syn keyword vyperBuiltin indexed public constant
 syn keyword vyperTodo TODO FIXME NOTE contained
+
+syn match vyperInitializes "^\(uses\|initializes\)\s*:"
+syn match vyperImplements "^\(implements\|exports\)\s*:"
 
 "Functions
 syn match vyperFunction "[a-zA-Z_][a-zA-Z0-9_]*" display contained
@@ -89,7 +91,8 @@ syn sync match vyperSync grouphere NONE "^\%(def\)\s\+\h\w*\s*[(:]"
 "Highlighting
 hi link vyperStatement Statement
 hi link vyperImplements Statement
-hi link vyperImport Special
+hi link vyperImport Statement
+hi link vyperInitializes Statement
 hi link vyperConditional Conditional
 hi link vyperConstant Function
 hi link vyperRepeat Repeat

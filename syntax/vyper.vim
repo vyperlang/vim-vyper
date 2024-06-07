@@ -16,9 +16,10 @@ syn keyword vyperImplements implements
 syn keyword vyperConstant ZERO_ADDRESS EMPTY_BYTES32 MAX_INT128 MIN_INT128 MAX_DECIMAL MIN_DECIMAL MAX_UINT256
 syn keyword vyperEnvironment msg tx block
 syn keyword vyperStatement flag enum struct event interface def nextgroup=vyperFunction skipwhite
+syn keyword vyperSpecial return pass continue break log assert raise
+syn keyword vyperSpecial extcall staticcall
 syn keyword vyperRepeat for while in
 syn keyword vyperConditional if else elif
-syn keyword vyperSpecial return pass continue break log assert raise
 syn keyword vyperOperator and not or
 syn keyword vyperBoolean True False
 syn keyword vyperTypes address bool decimal

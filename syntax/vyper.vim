@@ -45,7 +45,7 @@ syn match vyperOperator "\v(\=|\+|\-|\*|\/|\%|\!|\<|\>|\||\^|\&)"
 
 "Decorators
 syn match vyperDecorator "@" display nextgroup=vyperDecoratorName skipwhite
-syn match vyperDecoratorName "\(payable\|nonpayable\|view\|pure\|internal\|external\|nonreentrant\)$" display contained "TODO add `@deploy`
+syn match vyperDecoratorName "\(payable\|nonpayable\|view\|pure\|internal\|external\|deploy\|nonreentrant\)$" display contained
 
 "Natspec
 syn match vyperNatspec "@\w\+" display nextgroup=vyperNatspec contained

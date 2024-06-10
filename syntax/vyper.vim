@@ -3,7 +3,7 @@
 " Author:               chgue (https://github.com/chgue)
 " URL:                  https://github.com/vyperlang/vim-vyper
 " Last Change:          2024-06-07
-" Filenames:            *.vy
+" Filenames:            *.vy, *.vyi
 
 if exists("b:current_syntax")
   finish

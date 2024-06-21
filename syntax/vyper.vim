@@ -16,7 +16,7 @@ syn keyword vyperConstant ZERO_ADDRESS EMPTY_BYTES32 MAX_INT128 MIN_INT128 MAX_D
 syn keyword vyperEnvironment msg tx block
 syn keyword vyperStatement flag enum struct event interface def nextgroup=vyperFunction skipwhite
 syn keyword vyperStatement return pass continue break log assert raise
-syn keyword vyperStatement extcall staticcall
+syn keyword vyperExternalCall extcall staticcall
 syn keyword vyperRepeat for while in
 syn keyword vyperConditional if else elif
 syn keyword vyperOperator and not or
@@ -88,6 +88,7 @@ syn sync match vyperSync grouphere NONE "^\%(def\)\s\+\h\w*\s*[(:]"
 
 "Highlighting
 hi link vyperStatement Statement
+hi link vyperExternalCall Special
 hi link vyperImplements Statement
 hi link vyperImport Statement
 hi link vyperInitializes Statement

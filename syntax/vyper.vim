@@ -74,9 +74,11 @@ syn match vyperAddress "\<0x\x\{40}\>" display
 syn match vyperHexLiteralError "\<0x\x\{65,}\>" display
 syn match vyperHexLiteralError "\<0x\x*\X\+.\+\>" display
 syn match vyperDecimal "\<\d*\.\d\+\>" display
-"String (String inside a string doesn't work properly!)
-syn match vyperString +".\{-}"+ display
-syn match vyperString +'.\{-}'+ display
+"String
+syntax match vyperSpecial "\\\d\d\d\|\\."
+syntax region vyperString start=+"+  skip=+\\\\\|\\"+  end=+"\|$+ contains=vyperSpecial
+syntax region vyperString  start=+'+  skip=+\\\\\|\\'+  end=+'\|$+ contains=vyperSpecial
+
 "Docstrings
 syn region vyperString start=+[uU]\=\z('''\|"""\)+ end="\z1" contains=vyperTodo,vyperNatspec keepend
 

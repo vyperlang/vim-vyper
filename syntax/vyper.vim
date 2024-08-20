@@ -74,14 +74,20 @@ syn match vyperAddress "\<0x\x\{40}\>" display
 syn match vyperHexLiteralError "\<0x\x\{65,}\>" display
 syn match vyperHexLiteralError "\<0x\x*\X\+.\+\>" display
 syn match vyperDecimal "\<\d*\.\d\+\>" display
-"String (String inside a string doesn't work properly!)
-syn match vyperString +".\{-}"+ display
-syn match vyperString +'.\{-}'+ display
+
+"String literals
+"(String inside a string doesn't work properly!)
+
 "Docstrings
 syn region vyperString start=+[uU]\=\z('''\|"""\)+ end="\z1" contains=vyperTodo,vyperNatspec keepend
 
+"Precedence : non-greedy match unmatched strings ("'), then non-greedy match
+"proper strings
 syn match vyperStringError +".\{-}'+ display
 syn match vyperStringError +'.\{-}"+ display
+
+syn match vyperString +".\{-}"+ display
+syn match vyperString +'.\{-}'+ display
 
 "We need to sync at each def so that docstrings don't spill into other methods
 syn sync match vyperSync grouphere NONE "^\%(def\)\s\+\h\w*\s*[(:]"

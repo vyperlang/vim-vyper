@@ -70,11 +70,12 @@ syn match vyperNumber "\<\d\>" display
 syn match vyperNumber "\<[1-9]\d\+\>" display
 syn match vyperNumberError "\<0\d\+\>" display
 syn match vyperHex "\<0x\x\{2,64}\>" display
-syn match vyperHexLiteral /\<x"\x\+"/ display
-syn match vyperByteString /\<b"[^"]*"\>/ display
+syn match vyperHexLiteral "\<x\"[0-9A-Fa-f]\+\"\>" display
+syn match vyperByteString "\<b\"[^\"]*\"\>" display
 syn match vyperAddress "\<0x\x\{40}\>" display
 syn match vyperHexLiteralError "\<0x\x\{65,}\>" display
 syn match vyperHexLiteralError "\<0x\x*\X\+.\+\>" display
+syn match vyperHexLiteralError "\<x\"[0-9A-Fa-f]*[^0-9A-Fa-f\"]\+.*\"\>" display
 syn match vyperDecimal "\<\d*\.\d\+\>" display
 
 "String literals

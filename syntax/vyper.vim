@@ -61,7 +61,7 @@ syn match vyperNatspec "@\w\+" display nextgroup=vyperNatspec contained
 " # pragma versionnn
 " (for pragmas which don't take arguments, allow trailing whitespace but not
 " trailing words characters)
-syn match vyperPragma "^\s*#\s*pragma\s\+\(evm-version\|experimental-codegen\|optimize\|enable-decimals\|version\)\(\s\+\|$\).*"
+syn match vyperPragma "^\s*#\s*pragma\s\+\(evm-version\|experimental-codegen\|venom\|optimize\|enable-decimals\|version\)\(\s\+\|$\).*"
 syn match vyperComment "#.*$" contains=vyperTodo,vyperNatspec,vyperPragma
 
 
